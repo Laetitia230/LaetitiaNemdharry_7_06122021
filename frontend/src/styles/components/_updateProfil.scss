@@ -1,0 +1,186 @@
+.profil-container {
+  display: flex;
+  .infoUser-main {
+    width: 100%;
+    .infoUser-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      @media screen and(max-width: 414px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+      .button-edit {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        @media screen and(max-width: 414px) {
+          align-items: flex-start;
+          margin-top: 8px;
+        }
+
+        button {
+          height: 50px;
+          width: fit-content;
+        }
+
+        .delet-user {
+          margin-top: 8px;
+          color: $color-error;
+          background: transparent;
+          border: 2px solid $color-error;
+        }
+      }
+    }
+
+    .infoUser-main {
+      h2 {
+        margin: 4px;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+      .email-birth {
+        margin: 4px;
+        display: flex;
+        i {
+          margin-right: 8px;
+        }
+      }
+      .bio {
+        margin-top: 8px;
+        font-size: 1.2em;
+        font-weight: bold;
+        max-width: 400px;
+      }
+    }
+
+    ul {
+      max-width: 150px;
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+      @media screen and(max-width: 414px) {
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      #likePost {
+        padding-left: 13px;
+      }
+
+      li {
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px 20px;
+        transition: 0.2s;
+        width: 50%;
+        font-weight: bolder;
+        margin: 5px 0px;
+
+        @media screen and(max-width: 414px) {
+          width: 80%;
+          margin: 8 auto;
+        }
+      }
+      .active-btn {
+        text-align: center;
+        background: $color-1;
+        color: $color-2;
+
+        &:hover {
+          background: $color-2;
+          color: $color-1;
+        }
+      }
+      li:not(.active-btn) {
+        &:hover {
+          // transform: translateX(3px);
+          color: $color-1;
+        }
+      }
+    }
+  }
+  .edit {
+    margin: 16px auto;
+    padding: 16px 40px;
+    border-radius: 20px;
+    position: relative;
+    background: rgba($color: #3999c4, $alpha: 0.2);
+
+    @media screen and(max-width: 414px) {
+      padding: 8px 10px;
+    }
+
+    textarea {
+      height: 51px;
+      width: 100%;
+      font-size: 1.4em;
+      padding: 12px 15px;
+      @media screen and(max-width: 414px) {
+        font-size: 1em;
+      }
+    }
+    img {
+      width: 60%;
+      border-radius: 6px;
+      margin-top: 12px;
+    }
+    .edit-footer {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      margin-top: 8px;
+      width: 100%;
+
+      // align-items: center;
+      .icon {
+        position: relative;
+        cursor: pointer;
+        width: 30px;
+        height: 20px;
+
+        i {
+          position: absolute;
+          font-size: 2em;
+        }
+
+        input {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+
+          &::-webkit-file-upload-button {
+            cursor: pointer;
+          }
+        }
+      }
+      .btn {
+        .cancel {
+          color: $color-error;
+          background: transparent;
+
+          &:hover {
+            background: $color-2;
+          }
+        }
+        .send {
+          background: transparent;
+          &:hover {
+            background: $color-2;
+            color: $color-1;
+          }
+        }
+      }
+    }
+  }
+}
