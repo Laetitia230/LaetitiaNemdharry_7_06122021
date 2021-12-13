@@ -21,13 +21,13 @@ const Navbar = () => {
                 <div className="logo">
                   <img
                     className="world-icon"
-                    src="./img/icon-world-black.png"
+                    src="../img/icon-world-black.png"
                     alt="logo site"
                   />
 
                   <img
                     className="groupo-icon"
-                    src="./img/icon-groupomania-black.png"
+                    src="../img/icon-groupomania-black.png"
                     alt="logo site"
                   />
                 </div>

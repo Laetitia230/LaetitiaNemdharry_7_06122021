@@ -11,10 +11,11 @@ const LikeButton = ({ post }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+  
     const likeNumber = async () => {
       await axios({
         method: "get",
-        url: `http://localhost:5000/api/like/${post.id}`,
+        url: `http://localhost:5000/api/like/${PostId}`,
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
         },
@@ -23,7 +24,8 @@ const LikeButton = ({ post }) => {
       });
     };
     likeNumber();
-  }, [isLoaded]);
+  }, [isLoaded, PostId]);
+  
 
   const likePost = async (e) => {
     e.preventDefault();
@@ -45,7 +47,7 @@ const LikeButton = ({ post }) => {
       } else {
         setIsLoaded(true);
       }
-      likeMap();
+     
     });
     
   };

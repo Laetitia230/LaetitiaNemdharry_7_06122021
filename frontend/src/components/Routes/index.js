@@ -11,9 +11,9 @@ const index = () => {
     <Router>
       <Navbar />
       <Switch>
+        <Route path="/" exact component={Home} />
         <Route path="/profil" exact component={Profil} />
         <Route path="/profil/:id" exact component={Profil} />
-        <Route path="/" exact component={Home} />
         <Route component={NotFound} />
       </Switch>
     </Router>

@@ -25,6 +25,7 @@ const DeleteButton = ({ post }) => {
         axios({
           method: "delete",
           url: `http://localhost:5000/api/post/${id}`,
+        
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
           },

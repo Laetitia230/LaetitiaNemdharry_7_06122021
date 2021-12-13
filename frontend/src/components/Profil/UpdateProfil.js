@@ -7,7 +7,7 @@ import WallUser from "./WallUser";
 import Swal from "sweetalert2";
 import WallPostUserId from "./WallPostUserId";
 import WallLikeUserId from "./WallLikeUserId";
-import { useParams } from "react-router-dom";
+
 
 // AFFICHAGE DU PROFIL D'UN UTILISATEUR
 const UpdateProfil = () => {
@@ -20,7 +20,8 @@ const UpdateProfil = () => {
 
   const uid = useContext(UidContext);
   const admin = useContext(AdminContext);
-  const { id } = useParams();
+  const  id  = sessionStorage.getItem("userID");
+  
 
   useEffect(() => {
     // RECUPERATION DES INFO D'UN USER GRACE A L'APPEL API AXIOS DANS LE BACKEND: me

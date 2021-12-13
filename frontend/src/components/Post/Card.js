@@ -5,7 +5,7 @@ import LikeButton from "./LikeButton";
 import DeleteButton from "./DeleteButton";
 import Moment from "react-moment";
 import "moment/locale/fr";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // AFFICHAGE D'UN POST
 const Card = ({ post }) => {
@@ -17,14 +17,15 @@ const Card = ({ post }) => {
 
   useEffect(() => {
     setCommentLength(post.Comments.length);
-  }, [showComment, commentLength]);
+    
+  }, [showComment, commentLength, post.Comments.length]);
 
   return (
     <li className="card-container" key={post.id}>
       <div className="card-left">
-        <Link exact to={`/profil/${post.User.id}`}>
+        <NavLink exact to={`/profil/${post.User.id}`}>
           <img src={post.User.photo} alt="" />
-        </Link>
+        </NavLink>
       </div>
       <div className="card-right">
         <div className="card-header">
@@ -43,6 +44,7 @@ const Card = ({ post }) => {
         </div>
         <div className="card-main">
           <p>{post.message}</p>
+          
           {post.picture && (
             <img src={post.picture} alt="img du post" className="card-pic" />
           )}
@@ -71,7 +73,7 @@ const Card = ({ post }) => {
             <DeleteButton post={post} />
           ) : null}
         </div>
-        {showComment && <CardComment post={post} />}
+        {showComment &&<CardComment post={post} />}
       </div>
     </li>
   );

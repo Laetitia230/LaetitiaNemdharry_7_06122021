@@ -16,6 +16,7 @@ const CardComment = ({ post }) => {
   useEffect(() => {
     // RECUPERATION DES COOMENTAIRES D'UN POST GRACE A L'APPEL API AXIOS DU BACEND: getAllComment
     const getComment = async () => {
+  
       await axios({
         method: "get",
         url: `http://localhost:5000/api/comment/${PostId}`,
@@ -27,7 +28,7 @@ const CardComment = ({ post }) => {
       });
     };
     getComment();
-  }, [isLoaded]);
+  }, [isLoaded, PostId]);
 
   const handleComment = (e) => {
     // CREATION D'UN NOUVEAU COMMENTAIRE + ENVOI DB SQL

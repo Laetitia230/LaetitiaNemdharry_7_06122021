@@ -14,14 +14,14 @@ const Login = () => {
 
     const data = { email, password };
     axios
-      .post("http://localhost:5000/api/user/login", data)
+      .post("http://localhost:5000/api/user/login/", data)
       .then((res) => {
         if (res.data.error) {
           emailError.innerHTML = res.data.error;
           passwordError.innerHTML = "";
-        } else if (res.data.error2) {
+        } else if (res.data.error) {
           emailError.innerHTML = "";
-          passwordError.innerHTML = res.data.error2;
+          passwordError.innerHTML = res.data.error;
         } else {
           window.location = "/";
           sessionStorage.setItem("authToken", res.data.token);

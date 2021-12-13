@@ -22,8 +22,8 @@ const Home = () => {
         </div>
       ) : (
         <>
-         <Redirect to="/profil" />
-        <h1></h1>
+         <Redirect to="/" />
+       
         </>
       )}
     </div>
