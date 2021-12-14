@@ -57,7 +57,7 @@ const UpdateProfil = () => {
       }
 
       axios
-        .put(`http://localhost:5000/api/user/${uid}`, data, {
+        .put(`http://localhost:5000/api/user/${id}`, data, {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
           },

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { UidContext } from "../AppContext";
 import { timestampParser } from "../Utils";
 
@@ -93,9 +93,9 @@ const NewPost = () => {
   return (
     <div className="post-container">
       <div className="post-header">
-        <Link to={`/profil/${uid}`}>
+        <NavLink to={`/profil/${uid}`}>
           <img src={photoUser} alt="img de profil" />
-        </Link>
+        </NavLink>
       </div>
       <div className="post-main">
         <textarea

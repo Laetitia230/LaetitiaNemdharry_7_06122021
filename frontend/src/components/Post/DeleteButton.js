@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-// BOUTOTN SUPPRESSION DE POST
+// BOUTTON SUPPRESSION DE POST
 const DeleteButton = ({ post }) => {
   const id = post.id;
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import { timestampParser } from "../Utils";
 import Swal from "sweetalert2";
 
+
 // AFFICHAGE DES COMMENTAIRE + NOUVEAU COMMENTAIRE + SUPPRESSION COMMENTAIRE D'UN POST
 const CardComment = ({ post }) => {
   const uid = useContext(UidContext);
@@ -72,7 +73,7 @@ const CardComment = ({ post }) => {
         Swal.fire("Supprimé", "votre commentaire a été supprimé", "success");
         axios({
           method: "delete",
-          url: `http://localhost:5000/api/comment/${id}`,
+          url: `http://localhost:5000/api/comment/${uid}`,
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
           },
@@ -115,12 +116,12 @@ const CardComment = ({ post }) => {
                 <p>{comment.message}</p>
               </div>
               <div className="footer-comment">
-                {uid === comment.UserId || admin === 1 ? (
+                
                   <i
                     className="far fa-trash-alt"
                     onClick={() => deleteComment(comment.id)}
                   ></i>
-                ) : null}
+              
               </div>
             </div>
           </div>
@@ -140,6 +141,7 @@ const CardComment = ({ post }) => {
         <br />
         <input type="submit" />
       </form>
+      
     </div>
   );
 };
