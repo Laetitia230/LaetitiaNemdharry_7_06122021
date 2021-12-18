@@ -69,8 +69,9 @@ const Card = ({ post }) => {
             <span>{commentLength}</span>
           </div>
           <LikeButton post={post} />
-         
+          {uid === post.User.id || admin === 1 ? (
             <DeleteButton post={post} />
+          ) : null}
         
          
         </div>

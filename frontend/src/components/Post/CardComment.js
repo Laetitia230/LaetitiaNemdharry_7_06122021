@@ -117,10 +117,12 @@ const CardComment = ({ post }) => {
               </div>
               <div className="footer-comment">
                 
+              {uid === comment.UserId || admin === 1 ? (
                   <i
-                    className="far fa-trash-alt"
+                    class="far fa-trash-alt"
                     onClick={() => deleteComment(comment.id)}
                   ></i>
+                ) : null}
               
               </div>
             </div>
@@ -131,7 +133,6 @@ const CardComment = ({ post }) => {
         <input
           type="text"
           name="message"
-          on
           onChange={(e) => setMessage(e.target.value)}
           value={message}
           placeholder="Laisser un commentaire"
