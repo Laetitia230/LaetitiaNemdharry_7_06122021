@@ -1,0 +1,12 @@
+.home-page {
+  display: flex;
+  margin: auto;
+  max-width: 1200px;
+  .home-connect {
+    display: flex;
+    width: 100%;
+    .main {
+      width: 100%;
+    }
+  }
+}
