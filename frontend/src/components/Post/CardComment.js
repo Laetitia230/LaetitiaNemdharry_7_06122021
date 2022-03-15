@@ -73,7 +73,7 @@ const CardComment = ({ post }) => {
         Swal.fire("Supprimé", "votre commentaire a été supprimé", "success");
         axios({
           method: "delete",
-          url: `http://localhost:5000/api/comment/${uid}`,
+          url: `http://localhost:5000/api/comment/${id}`,
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
           },
@@ -104,11 +104,9 @@ const CardComment = ({ post }) => {
             <img src={comment.User.photo} alt="img de profil" />
             <div className="right-comment">
               <div className="header-comment">
-                {comment.User.pseudo === "Lr4mquGt64H6pjU39N3Y" ? (
-                  <h3 className="admin-pseudo">ADMIN</h3>
-                ) : (
+                
                   <h3>{comment.User.pseudo}</h3>
-                )}
+              
 
                 <span>{timestampParser(comment.updatedAt)}</span>
               </div>
@@ -117,9 +115,9 @@ const CardComment = ({ post }) => {
               </div>
               <div className="footer-comment">
                 
-              {uid === comment.UserId || admin === 1 ? (
+              {parseInt(uid) === comment.User.id || parseInt(admin) === 1 ? (
                   <i
-                    class="far fa-trash-alt"
+                    className="far fa-trash-alt"
                     onClick={() => deleteComment(comment.id)}
                   ></i>
                 ) : null}

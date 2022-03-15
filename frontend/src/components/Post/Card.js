@@ -29,11 +29,9 @@ const Card = ({ post }) => {
       </div>
       <div className="card-right">
         <div className="card-header">
-          {post.User.pseudo === "Lr4mquGt64H6pjU39N3Y" ? (
-            <h2 className="admin-pseudo">ADMIN</h2>
-          ) : (
+          
             <h2>{post.User.pseudo} </h2>
-          )}
+         
 
           <span>
             <p>Il y a </p>
@@ -69,7 +67,7 @@ const Card = ({ post }) => {
             <span>{commentLength}</span>
           </div>
           <LikeButton post={post} />
-          {uid === post.User.id || admin === 1 ? (
+          {parseInt(uid) === post.User.id || parseInt(admin) === 1 ? (
             <DeleteButton post={post} />
           ) : null}
         
