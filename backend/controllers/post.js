@@ -33,7 +33,7 @@ exports.createPost = (req, res, next) => {
     Post.create({
       UserId: req.body.UserId,
       message: req.body.message,
-      video: req.body.video,
+      
     })
       .then(() =>
         res.status(201).json({ message: "Le post a été créé sans image" })
@@ -47,7 +47,7 @@ exports.createPost = (req, res, next) => {
       picture: `${req.protocol}://${req.get("host")}/images/${
         req.file.filename
       }`,
-      video: req.body.video,
+     
     })
       .then(() =>
         res.status(201).json({ message: "Le post a été créé avec une image" })

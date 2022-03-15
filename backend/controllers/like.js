@@ -38,7 +38,7 @@ exports.likeCounter = async (req, res, next) => {
 exports.getLikeUserId = async (req, res, next) => {
   await sequelize
     .query(
-      "SELECT u.id as user,l.id as like_id,p.message,p.id,p.picture,p.video,p.updatedAt,u.photo, u.pseudo FROM groupomania.likes as l INNER JOIN groupomania.posts as p ON l.PostId=p.id INNER JOIN groupomania.users as u ON u.id=p.UserId WHERE l.UserId=?",
+      "SELECT u.id as user,l.id as like_id,p.message,p.id,p.picture,p.updatedAt,u.photo, u.pseudo FROM groupomania.likes as l INNER JOIN groupomania.posts as p ON l.PostId=p.id INNER JOIN groupomania.users as u ON u.id=p.UserId WHERE l.UserId=?",
       {
         replacements: [req.params.id],
         type: QueryTypes.SELECT,

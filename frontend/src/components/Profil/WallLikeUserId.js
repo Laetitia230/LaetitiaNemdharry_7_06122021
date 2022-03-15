@@ -60,17 +60,7 @@ const WallLikeUserId = () => {
                     className="card-pic"
                   />
                 )}
-                {likeUser.video && (
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={likeUser.video}
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="youtube video player"
-                  ></iframe>
-                )}
+              
               </div>
               <div className="card-footer">
                 <i className="far fa-comment likewall "></i>

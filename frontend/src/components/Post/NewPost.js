@@ -8,7 +8,7 @@ import { timestampParser } from "../Utils";
 const NewPost = () => {
   const [message, setMessage] = useState("");
   const [picture, setPicture] = useState("");
-  const [video, setVideo] = useState("");
+
   const [file, setFile] = useState("");
   const [pseudo, setPseudo] = useState("");
   const [photoUser, setPhotoUser] = useState("");
@@ -16,12 +16,12 @@ const NewPost = () => {
 
   const handlePost = () => {
     // ENVOI DU NOUVEAU POST DANS LA DB SQL GRACE A UN APPEL API AXIOS DANS LE BACKEND: createPost
-    if (message || picture || video) {
+    if (message || picture) {
       const data = new FormData();
       data.append("UserId", uid);
       data.append("message", message);
       data.append("file", file);
-      data.append("video", video);
+
 
       axios
         .post("http://localhost:5000/api/post/", data, {
@@ -59,36 +59,20 @@ const NewPost = () => {
     // RECUPERRATION DES INFORMATION DE L'IMAGE A ENVOYER DANS LA DB SQL
     setPicture(URL.createObjectURL(e.target.files[0]));
     setFile(e.target.files[0]);
-    setVideo("");
+
   };
 
-  const handleVideo = () => {
-    // RECUPERATION ET MODIFICATION DE L'URL DE LA VIDEO YOUTUBE POUR UN AFFICHAGE ET L'ENVOI A LA DB SQL
-    let findLink = message.split(" ");
-    for (let i = 0; i < findLink.length; i++) {
-      if (
-        findLink[i].includes("https://www.yout") ||
-        findLink[i].includes("https://yout")
-      ) {
-        setVideo(findLink[i].replace("watch?v=", "embed/"));
-        findLink.splice(i, 1);
-        setMessage(findLink.join(""));
-        setPicture("");
-      }
-    }
-  };
+
 
   const cancelPost = () => {
     // ANNULATION DU NOUVEAU POST
     setMessage("");
     setPicture("");
-    setVideo("");
     setFile("");
   };
 
-  useEffect(() => {
-    handleVideo();
-  }, [message, video]);
+
+
 
   return (
     <div className="post-container">
@@ -105,7 +89,7 @@ const NewPost = () => {
           onChange={(e) => setMessage(e.target.value)}
           value={message}
         ></textarea>
-        {message || picture || video.length > 20 ? (
+        {message || picture ? (
           <div className="card-container">
             <div className="card-left">
               <img src={photoUser} alt="img de profil" />
@@ -118,37 +102,29 @@ const NewPost = () => {
               <div className="card-main">
                 <p>{message}</p>
                 <img src={picture} alt="" />
-                {video && (
-                  <iframe
-                    src={video}
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title={video}
-                  ></iframe>
-                )}
+
               </div>
             </div>
           </div>
         ) : null}
       </div>
       <div className="post-footer">
-        {video === "" && (
-          <div className="icon">
-            <i className="far fa-image"></i>
-            <input
-              type="file"
-              id="file-upload"
-              name="file"
-              accept=".png, .jpg, .jpeg"
-              onChange={(e) => handlePicture(e)}
-              title="ajouter une photo"
-            />
-          </div>
-        )}
-        {video && <button onClick={() => setVideo("")}>Supprimer video</button>}
+
+        <div className="icon">
+          <i className="far fa-image"></i>
+          <input
+            type="file"
+            id="file-upload"
+            name="file"
+            accept=".png, .jpg, .jpeg"
+            onChange={(e) => handlePicture(e)}
+            title="ajouter une photo"
+          />
+        </div>
+
+
         <div className="btn-send">
-          {message || picture || video.length > 20 ? (
+          {message || picture ? (
             <button className="cancel" onClick={cancelPost}>
               Annuler
             </button>

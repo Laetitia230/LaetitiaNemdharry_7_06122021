@@ -59,17 +59,7 @@ const WallPostUserId = ({ infoUser }) => {
                     className="card-pic"
                   />
                 )}
-                {postUser.video && (
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={postUser.video}
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="youtube video player"
-                  ></iframe>
-                )}
+             
               </div>
             </div>
           </li>

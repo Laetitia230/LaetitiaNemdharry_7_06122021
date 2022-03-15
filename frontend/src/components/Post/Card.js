@@ -46,17 +46,7 @@ const Card = ({ post }) => {
           {post.picture && (
             <img src={post.picture} alt="img du post" className="card-pic" />
           )}
-          {post.video && (
-            <iframe
-              width="560"
-              height="315"
-              src={post.video}
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="youtube video player"
-            ></iframe>
-          )}
+          
         </div>
         <div className="card-footer">
           <div className="comment-icon">
