@@ -19,7 +19,7 @@ const Card = ({ post }) => {
     setCommentLength(post.Comments.length);
     
   }, [showComment, commentLength, post.Comments.length]);
-
+  
   return (
     <li className="card-container" key={post.id}>
       <div className="card-left">

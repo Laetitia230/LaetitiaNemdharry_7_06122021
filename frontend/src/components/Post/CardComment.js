@@ -48,6 +48,7 @@ const CardComment = ({ post }) => {
         },
       })
       .then(() => {
+        window.location.reload();
         setMessage("");
         if (isLoaded) {
           setIsLoaded(false);
@@ -78,6 +79,7 @@ const CardComment = ({ post }) => {
             Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
           },
         }).then(() => {
+          window.location.reload();
           setMessage("");
           if (isLoaded) {
             setIsLoaded(false);
