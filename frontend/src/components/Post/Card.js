@@ -52,9 +52,10 @@ const Card = ({ post }) => {
           <div className="comment-icon">
             <i
               className="far fa-comment"
-              onClick={() => setShowComment(!showComment)}
+              onClick={() =>setShowComment(!showComment)}
             ></i>
             <span>{commentLength}</span>
+           
           </div>
           <LikeButton post={post} />
           {parseInt(uid) === post.User.id || parseInt(admin) === 1 ? (

@@ -19,7 +19,7 @@ const SignUp = () => {
     const confirmPasswordError = document.querySelector(".password-conf.error");
 
     confirmPasswordError.innerHTML = "";
-    passwordError.innerHTML = "";
+    passwordError.innerHTML = '';
     emailError.innerHTML = "";
     pseudoError.innerHTML = "";
 
@@ -38,29 +38,29 @@ const SignUp = () => {
         })
         .catch((err) => {
           if (err.response.data.error.length === 3) {
-            emailError.innerHTML = err.response.data.error[0].message;
-            passwordError.innerHTML = err.response.data.error[1].message;
-            pseudoError.innerHTML = err.response.data.error[2].message;
+            emailError.innerHTML = "Saisissez une adresse e-mail valide";
+            passwordError.innerHTML = "Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule, 1 caractère spécial. Sans espaces";
+            pseudoError.innerHTML = "Veuillez saisir un pseudo correct";
           }
           if (err.response.data.error.length === 2) {
             if (err.response.data.error[0].path === "email") {
-              emailError.innerHTML = err.response.data.error[0].message;
-              if (err.response.data.error[1].path ==="password") {
-                passwordError.innerHTML = err.response.data.error[1].message;
+              emailError.innerHTML = "Saisissez une adresse e-mail valide";
+              if (err.response.data.error[1].path === "password") {
+                passwordError.innerHTML = "Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule, 1 caractère spécial. Sans espaces";
               } else {
-                pseudoError.innerHTML = err.response.data.error[1].message;
+                pseudoError.innerHTML = "Veuillez saisir un pseudo correct";
               }
             } else if (err.response.data.error[0].path === "password") {
-              passwordError.innerHTML = err.response.data.error[0].message;
-              pseudoError.innerHTML = err.response.data.error[1].message;
+              passwordError.innerHTML = "Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule, 1 caractère spécial. Sans espaces";
+              pseudoError.innerHTML = "Veuillez saisir un pseudo correct";
             }
           } else {
-            if (err.response.data.error[0].path=== "email") {
-              emailError.innerHTML = err.response.data.error[0].message;
-            } else if (err.response.data.error[0].path ==="password") {
-              passwordError.innerHTML = err.response.data.error[0].message;
-            } else if (err.response.data.error[0].path ==="pseudo") {
-              pseudoError.innerHTML = err.response.data.error[0].message;
+            if (err.response.data.error[0].path === "email") {
+              emailError.innerHTML = "Saisissez une adresse e-mail valide";
+            } else if (err.response.data.error[0].path === "password") {
+              passwordError.innerHTML = "Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule, 1 caractère spécial. Sans espaces";
+            } else if (err.response.data.error[0].path === "pseudo") {
+              pseudoError.innerHTML = "Veuillez saisir un pseudo correct";
             }
           }
         });

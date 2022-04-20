@@ -48,14 +48,16 @@ const CardComment = ({ post }) => {
         },
       })
       .then(() => {
-        window.location.reload();
+       
         setMessage("");
         if (isLoaded) {
           setIsLoaded(false);
         } else {
           setIsLoaded(true);
         }
+       
       });
+      window.location.reload();
   };
 
   const deleteComment = async (id) => {
@@ -79,18 +81,22 @@ const CardComment = ({ post }) => {
             Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
           },
         }).then(() => {
-          window.location.reload();
+          
           setMessage("");
           if (isLoaded) {
             setIsLoaded(false);
           } else {
             setIsLoaded(true);
           }
+          window.location.reload();
         });
+       
       }
+      
     });
+   
   };
-
+ 
   return (
     <div className="comments-container">
       {commentList.map((comment) => {

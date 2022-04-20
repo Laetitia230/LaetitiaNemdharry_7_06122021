@@ -19,9 +19,9 @@ const Login = () => {
         if (res.data.error) {
           emailError.innerHTML = res.data.error;
           passwordError.innerHTML = "";
-        } else if (res.data.error) {
+        } else if (res.data.error2) {
           emailError.innerHTML = "";
-          passwordError.innerHTML = res.data.error;
+          passwordError.innerHTML = res.data.error2;
         } else {
           window.location = "/";
           sessionStorage.setItem("authToken", res.data.token);

@@ -13,15 +13,15 @@ import WallLikeUserId from "./WallLikeUserId";
 const UpdateProfil = () => {
   const [infoUser, setInfoUser] = useState("");
   const [showEdit, setShowEdit] = useState(false);
-  
+
   const [picture, setPicture] = useState("");
   const [file, setFile] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
   const uid = useContext(UidContext);
   const admin = useContext(AdminContext);
-  const  id  = sessionStorage.getItem("userID");
-  
+  const id = sessionStorage.getItem("userID");
+
 
   useEffect(() => {
     // RECUPERATION DES INFO D'UN USER GRACE A L'APPEL API AXIOS DANS LE BACKEND: me
@@ -47,7 +47,7 @@ const UpdateProfil = () => {
 
   const handleEdit = () => {
     // MODIFICTION DU PROFIL D'UN UTILISATEUR + ENVOI DB GRACE A L'APPEL API AXIOS DANS LE BACKEND: editUser
-    if ( picture) {
+    if (picture) {
       const data = new FormData();
       if (!picture) {
         data.append("file", file);
@@ -135,7 +135,7 @@ const UpdateProfil = () => {
   };
 
   const cancelPost = () => {
-   
+
     setPicture("");
     setFile("");
   };
@@ -186,11 +186,11 @@ const UpdateProfil = () => {
             </span>
           </div>
 
-          
+
         </div>
         {showEdit && (
           <div className="edit">
-            
+
             <img src={picture} alt="" />
             <div className="edit-footer">
               <div className="icon">
@@ -204,7 +204,7 @@ const UpdateProfil = () => {
                 />
               </div>
               <div className="btn">
-                { picture ? (
+                {picture ? (
                   <button className="cancel" onClick={cancelPost}>
                     Annuler
                   </button>
