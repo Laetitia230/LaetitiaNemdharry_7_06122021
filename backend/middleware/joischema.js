@@ -19,7 +19,7 @@ module.exports = joi
       .required()
       .messages({
         "string.empty": `le mot de passe est requis`,
-        "string.pattern.base": `mot de passe doit contenir 8 caractères minimum et au moins 1 majuscule, 1 minuscule, 1 caractère spécial et 1 chiffre`,
+        "string.pattern.base": `Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule, 1 caractère spécial. Sans espaces`,
       })
       .label("Mot de passe"),
     pseudo: joi
